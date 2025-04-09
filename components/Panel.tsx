@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+type DeliveryPerson = {
+  id: string;
+  name: string;
+  status: string;
+  group?: string;
+};
+
 export function Panel({ onSelect }: { onSelect: (id: string) => void }) {
-  const [deliveryPeople, setDeliveryPeople] = useState([]);
+  const [deliveryPeople, setDeliveryPeople] = useState<DeliveryPerson[]>([]);
   const [status, setStatus] = useState('');
   const [group, setGroup] = useState('');
 
